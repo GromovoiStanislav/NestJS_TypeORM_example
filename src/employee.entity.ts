@@ -25,7 +25,7 @@ export class Employee {
   })
   manager: Employee;
 
-  @Column()
+  @Column({ nullable: true })
   managerId: number;
 
   @OneToMany(() => Employee, (employee) => employee.manager)

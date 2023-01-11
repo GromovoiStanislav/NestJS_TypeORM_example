@@ -21,6 +21,6 @@ export class Task {
   @JoinColumn()
   employee: Employee;
 
-  @Column()
+  @Column({ nullable: true })
   employeeId: number;
 }
