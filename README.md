@@ -3,7 +3,7 @@
 migration:
 
 ```
-npm run migration:generate  -- db/migrations/NewMigration
+npm run migration:generate  -- src/db/migrations/NewMigration
 
 npm run migration:run
 ```
