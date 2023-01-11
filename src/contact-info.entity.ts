@@ -1,5 +1,11 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Employee } from "./employee.entity";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Employee } from './employee.entity';
 
 @Entity()
 export class ContactInfo {
@@ -12,11 +18,12 @@ export class ContactInfo {
   @Column()
   email: string;
 
+  @OneToOne(() => Employee, (employee) => employee.contactInfo, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn()
+  employee: Employee;
 
   @Column()
   employeeId: number;
-
-  @OneToOne(() => Employee, employee => employee.contactInfo, { onDelete: "CASCADE" })
-  @JoinColumn()
-  employee: Employee;
 }
