@@ -1,5 +1,5 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from './user.entity';
 
 @Entity()
 export class Pet {
@@ -9,6 +9,9 @@ export class Pet {
   @Column()
   name: string;
 
-  @ManyToOne(() => User, user => user.pets,{ onDelete: "CASCADE" })
+  @ManyToOne(() => User, (user) => user.pets, { onDelete: 'CASCADE' })
   owner: User;
+
+  @Column()
+  ownerId: number;
 }
